@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sam! 💖 My Everything</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #ff4d8d;
+            --secondary: #9c3dff;
+            --accent: #00e5ff;
+            --dark: #1a1a2e;
+            --light: #fef6ff;
+        }
+        
+        body {
+            background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #533483);
+            background-size: 400% 400%;
+            animation: galaxyBG 20s ease infinite;
+            color: var(--light);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes galaxyBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header with glowing effect */
+        .header {
+            text-align: center;
+            padding: 50px 30px;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 77, 141, 0.3);
+            box-shadow: 0 0 50px rgba(255, 77, 141, 0.2), 
+                        inset 0 0 30px rgba(156, 61, 255, 0.1);
+        }
+        
+        .glow-text {
+            font-size: 4.5rem;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(90deg, #ff4d8d, #9c3dff, #00e5ff, #ff4d8d);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 3s ease infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 77, 141, 0.5);
+        }
+        
+        @keyframes glow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .friend-name {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 25px;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .friend-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff4d8d, #9c3dff, transparent);
+        }
+        
+        .distance-message {
+            font-size: 1.8rem;
+            color: #00e5ff;
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 20px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 2px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+            animation: pulseBlue 2s infinite alternate;
+        }
+        
+        @keyframes pulseBlue {
+            0% { box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+            100% { box-shadow: 0 0 30px rgba(0, 229, 255, 0.4); }
+        }
+        
+        /* Heart Container with Photo Carousel */
+        .heart-container {
+            width: 320px;
+            height: 320px;
+            margin: 40px auto;
+            position: relative;
+            filter: drop-shadow(0 0 25px #ff4d8d);
+        }
+        
+        .heart-main {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ff4d8d;
+            transform: rotate(45deg);
+            animation: heartbeat 1.2s infinite;
+            overflow: hidden;
+            border-radius: 50%;
+        }
+        
+        .heart-main::before, .heart-main::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #ff4d8d;
+            border-radius: 50%;
+        }
+        
+        .heart-main::before {
+            top: -50%;
+            left: 0;
+        }
+        
+        .heart-main::after {
+            top: 0;
+            left: -50%;
+        }
+        
+        .heart-photo-carousel {
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            z-index: 10;
+            border-radius: 20px;
+            overflow: hidden;
+            transform: rotate(-45deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 20;
+        }
+        
+        .carousel-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 2px solid #ff4d8d;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-btn.active {
+            background: #ff4d8d;
+            transform: scale(1.2);
+        }
+        
+        .carousel-btn:hover {
+            background: #ff4d8d;
+        }
+        
+        .heart-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: white;
+            font-size: 2.2rem;
+            font-weight: bold;
+            z-index: 5;
+            text-align: center;
+            width: 100%;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: rotate(45deg) scale(1); }
+            5% { transform: rotate(45deg) scale(1.1); }
+            10% { transform: rotate(45deg) scale(1); }
+            15% { transform: rotate(45deg) scale(1.2); }
+            20% { transform: rotate(45deg) scale(1); }
+            100% { transform: rotate(45deg) scale(1); }
+        }
+        
+        /* Video Memory Section */
+        .video-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(156, 61, 255, 0.3);
+            box-shadow: 0 0 40px rgba(156, 61, 255, 0.2);
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Dancing Script', cursive;
+            color: #ff4d8d;
+            text-shadow: 0 0 20px rgba(255, 77, 141, 0.5);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff4d8d, transparent);
+        }
+        
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .video-card {
+            background: rgba(15, 52, 96, 0.5);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(255, 77, 141, 0.3);
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 250px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,77,141,0.3), rgba(156,61,255,0.3));
+            z-index: 1;
+        }
+        
+        .video-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .video-title {
+            font-size: 1.5rem;
+            color: #00e5ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .video-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e6e6ff;
+        }
+        
+        /* Virtual Hug Section with Video */
+        .hug-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
+            text-align: center;
+        }
+        
+        .hug-video-container {
+            max-width: 800px;
+            margin: 40px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+        
+        .hug-video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .hug-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 77, 141, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 0 20px rgba(255, 77, 141, 0.8);
+            opacity: 0.8;
+        }
+        
+        /* Distance Bridge Visualization */
+        .distance-bridge {
+            height: 200px;
+            margin: 60px 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .bridge-line {
+            position: absolute;
+            height: 5px;
+            width: 80%;
+            background: linear-gradient(90deg, #ff4d8d, #9c3dff, #00e5ff);
+            border-radius: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 0 20px rgba(156, 61, 255, 0.5);
+        }
+        
+        .heart-icon {
+            position: absolute;
+            font-size: 3rem;
+            color: #ff4d8d;
+            animation: floatHearts 3s infinite ease-in-out;
+            text-shadow: 0 0 20px #ff4d8d;
+        }
+        
+        .heart-icon:nth-child(2) {
+            left: 15%;
+            animation-delay: 0.5s;
+        }
+        
+        .heart-icon:nth-child(3) {
+            left: 85%;
+            animation-delay: 1s;
+        }
+        
+        @keyframes floatHearts {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.2); }
+        }
+        
+        .location {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(26, 26, 46, 0.8);
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            border: 2px solid rgba(255, 77, 141, 0.5);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .location-me {
+            left: 5%;
+        }
+        
+        .location-sam {
+            right: 5%;
+        }
+        
+        /* Memory Timeline */
+        .memory-timeline {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff4d8d, #9c3dff, #00e5ff);
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            width: 45%;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-content {
+            background: rgba(15, 52, 96, 0.7);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 77, 141, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            border-color: #00e5ff;
+            box-shadow: 0 15px 35px rgba(0, 229, 255, 0.3);
+        }
+        
+        .timeline-date {
+            font-size: 1.2rem;
+            color: #ff4d8d;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        /* Interactive Buttons */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .btn {
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-heart {
+            background: linear-gradient(45deg, #ff4d8d, #ff2e6e);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 77, 141, 0.4);
+        }
+        
+        .btn-heart:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 77, 141, 0.6);
+        }
+        
+        .btn-video {
+            background: linear-gradient(45deg, #9c3dff, #7a2fff);
+            color: white;
+            box-shadow: 0 10px 25px rgba(156, 61, 255, 0.4);
+        }
+        
+        .btn-video:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(156, 61, 255, 0.6);
+        }
+        
+        .btn-surprise {
+            background: linear-gradient(45deg, #00e5ff, #00b7d4);
+            color: var(--dark);
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.4);
+        }
+        
+        .btn-surprise:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 229, 255, 0.6);
+        }
+        
+        /* Message Section */
+        .message-section {
+            margin: 60px 0;
+            padding: 50px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 77, 141, 0.3);
+            box-shadow: 0 0 50px rgba(255, 77, 141, 0.2);
+            text-align: center;
+        }
+        
+        .love-letter {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(15, 52, 96, 0.5);
+            border-radius: 20px;
+            border-left: 5px solid #ff4d8d;
+            border-right: 5px solid #9c3dff;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff4d8d, #9c3dff, #00e5ff);
+        }
+        
+        .letter-content {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #e6e6ff;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-size: 2rem;
+            color: #ff4d8d;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: floatAround 15s infinite linear;
+        }
+        
+        @keyframes floatAround {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(100px, 100px) rotate(90deg); }
+            50% { transform: translate(50px, 200px) rotate(180deg); }
+            75% { transform: translate(-50px, 100px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        /* Message Display */
+        .message-display {
+            background: rgba(15, 52, 96, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            min-height: 200px;
+            margin: 40px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #e6e6ff;
+            border: 3px solid rgba(255, 77, 141, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+            max-width: 900px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .message-display.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #e6e6ff;
+            font-size: 1.2rem;
+            border-top: 2px solid rgba(255, 77, 141, 0.3);
+            margin-top: 60px;
+        }
+        
+        .hearts {
+            font-size: 2.5rem;
+            letter-spacing: 15px;
+            margin: 30px 0;
+            color: #ff4d8d;
+            animation: heartsBeat 1.5s infinite;
+        }
+        
+        @keyframes heartsBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @media (max-width: 992px) {
+            .glow-text { font-size: 3.5rem; }
+            .friend-name { font-size: 2.8rem; }
+            .distance-message { font-size: 1.4rem; }
+            .section-title { font-size: 2.2rem; }
+            .heart-container { width: 280px; height: 280px; }
+            .video-container { grid-template-columns: 1fr; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: 100%; left: 0 !important; margin-left: 70px; }
+            .location { font-size: 1rem; padding: 10px 15px; }
+            .hug-video { height: 300px; }
+        }
+        
+        @media (max-width: 768px) {
+            .glow-text { font-size: 2.8rem; }
+            .friend-name { font-size: 2.2rem; }
+            .distance-message { font-size: 1.4rem; }
+            .section-title { font-size: 2.2rem; }
+            .btn { min-width: 100%; }
+            .heart-container { width: 250px; height: 250px; }
+            .heart-text { font-size: 1.8rem; }
+            .message-section, .video-section, .memory-timeline, .hug-section { padding: 25px; }
+            .hug-video { height: 250px; }
+        }
+        
+        /* Video Play Button */
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 77, 141, 0.8);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            z-index: 5;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(255, 77, 141, 0.7);
+        }
+        
+        .play-btn:hover {
+            background: rgba(255, 77, 141, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 77, 141, 0.9);
+        }
+        
+        /* Photo Carousel Controls */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 15;
+            pointer-events: none;
+        }
+        
+        .carousel-nav-btn {
+            background: rgba(255, 77, 141, 0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: all;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .carousel-nav-btn:hover {
+            background: rgba(255, 77, 141, 1);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <div class="container">
+        <header class="header">
+            <h1 class="glow-text">Happy Birthday Sam!</h1>
+            <div class="friend-name">To My Everything 💖</div>
+            
+            <div class="distance-message">
+                Miles may keep us apart, but you're always close to my heart ❤️
+            </div>
+            
+            <!-- Heart with Photo Carousel -->
+            <div class="heart-container">
+                <div class="heart-main"></div>
+                
+                <div class="heart-photo-carousel">
+                    <div class="carousel-slide active" data-index="0">
+                        <img src="1.jpeg" height="20px" width="20px" alt="Memory with Sam">
+                    </div>
+                    <div class="carousel-slide" data-index="1">
+                        <img src="2.jpeg" alt="Adventure with Sam">
+                    </div>
+                    <div class="carousel-slide" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1529255484355-cb73c33c04bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Celebration with Sam">
+                    </div>
+                    <div class="carousel-slide" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Smiling with Sam">
+                    </div>
+                    <div class="carousel-slide" data-index="4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Happy moment with Sam">
+                    </div>
+                    <div class="carousel-slide" data-index="5">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Friendship moment">
+                    </div>
+                    <div class="carousel-slide" data-index="6">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Special memory">
+                    </div>
+                    <div class="carousel-slide" data-index="7">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Beautiful memory">
+                    </div>
+                    
+                    <div class="carousel-nav">
+                        <button class="carousel-nav-btn prev-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-nav-btn next-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="carousel-controls">
+                    <div class="carousel-btn active" data-index="0"></div>
+                    <div class="carousel-btn" data-index="1"></div>
+                    <div class="carousel-btn" data-index="2"></div>
+                    <div class="carousel-btn" data-index="3"></div>
+                    <div class="carousel-btn" data-index="4"></div>
+                    <div class="carousel-btn" data-index="5"></div>
+                    <div class="carousel-btn" data-index="6"></div>
+                    <div class="carousel-btn" data-index="7"></div>
+                </div>
+                
+                <div class="heart-text">Our Memories</div>
+            </div>
+            
+            <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; color: #e6e6ff; line-height: 1.6;">
+                Today, on your special day, I want you to know how incredibly grateful I am for you. 
+                Even though we're far apart, you're the closest to my heart. This is our celebration!
+            </p>
+        </header>
+        
+        <!-- Distance Bridge Visualization -->
+        <div class="distance-bridge">
+            <div class="bridge-line"></div>
+            <div class="heart-icon">❤️</div>
+            <div class="heart-icon">💖</div>
+            <div class="heart-icon">💕</div>
+            
+            <div class="location location-me">
+                <i class="fas fa-map-marker-alt" style="color: #00e5ff;"></i> palakkad
+            </div>
+            <div class="location location-sam">
+                <i class="fas fa-map-marker-alt" style="color: #ff4d8d;"></i> kozhikode
+            </div>
+        </div>
+        
+        <!-- Virtual Hug Section with Video -->
+        <section class="hug-section">
+            <h2 class="section-title">Sending You a Virtual Hug</h2>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 20px; color: #b3b3ff;">
+                Even though I can't be there to hug you today, this is my virtual hug for you!
+            </p>
+            
+            <div class="hug-video-container">
+                <video class="hug-video" id="hugVideo" loop muted>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-two-girls-hugging-and-spinning-around-2385-large.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hug-overlay">
+                    <div style="text-align: center;">
+                        <i class="fas fa-heart" style="font-size: 5rem; margin-bottom: 20px;"></i>
+                        <div style="font-size: 2rem; font-family: 'Dancing Script', cursive;">Virtual Hug for Sam</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <button class="btn btn-heart" id="playHugVideo">
+                    <i class="fas fa-play-circle"></i> Play Hug Video
+                </button>
+                <p style="margin-top: 20px; font-size: 1.2rem; color: #ff4d8d;">
+                    <i class="fas fa-heart" style="margin-right: 10px;"></i>
+                    This hug carries all my love across the miles to you!
+                </p>
+            </div>
+        </section>
+        
+        <!-- Video Memory Section -->
+        <section class="video-section">
+            <h2 class="section-title">Our Video Memories</h2>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 40px; color: #b3b3ff;">
+                Even when we're apart, these memories bring us together
+            </p>
+            
+            <div class="video-container">
+                <div class="video-card">
+                    <div class="video-player" id="video1">
+                        <div class="play-btn" onclick="playVideo('video1')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div style="position: absolute; font-size: 5rem; opacity: 0.3;">📹</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Our First Video Call</div>
+                        <div class="video-description">
+                            That nervous excitement when we first saw each other on screen. 
+                            I knew then that distance couldn't dim our connection.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-player" id="video2">
+                        <div class="play-btn" onclick="playVideo('video2')">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div style="position: absolute; font-size: 5rem; opacity: 0.3;">🎥</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="video-title">Birthday Celebration Last Year</div>
+                        <div class="video-description">
+                            I remember singing happy birthday to you over video call. 
+                            Your smile lit up my screen and my world.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Memory Timeline -->
+        <section class="memory-timeline">
+            <h2 class="section-title">Our Journey Together</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">One Year Ago - We Met</div>
+                        <p>The day our paths crossed and my life changed forever. What started as a simple hello grew into the most beautiful friendship.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">First Heart-to-Heart</div>
+                        <p>That late-night conversation where we shared our dreams and fears. I realized then how special our connection was.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Through Distance</div>
+                        <p>Learning that miles mean nothing when two hearts are connected. Our daily chats became the highlight of my days.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Today - Your Birthday</div>
+                        <p>Celebrating you, the amazing person who has brought so much joy into my life despite the distance between us.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Section -->
+        <div class="btn-container">
+            <button class="btn btn-heart" id="heartMessageBtn">
+                <i class="fas fa-heart"></i> Heartfelt Message
+            </button>
+            <button class="btn btn-video" id="virtualHugBtn">
+                <i class="fas fa-hands"></i> Send Virtual Hug
+            </button>
+            <button class="btn btn-surprise" id="birthdaySurpriseBtn">
+                <i class="fas fa-birthday-cake"></i> Birthday Surprise
+            </button>
+        </div>
+        
+        <div class="message-display" id="messageDisplay">
+            Click a button above to see a special message for Sam!
+        </div>
+        
+        <!-- Final Message Section -->
+        <section class="message-section">
+            <h2 class="section-title">From My Heart to Yours</h2>
+            
+            <div class="love-letter">
+                <div class="letter-content">
+                    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"></p>To my favorite person from miles away😭💘</p>
+                    
+                    <p>Sometimes i sit quietly and think about how strange and beautiful our frienship is. We live in different places, breathe different air,walking different streets.yet somehow, you are one of the closest people to my heart.</p>
+                  
+                    <p>Distance has never made you feel far:
+                    </p>
+                    <p>There are days I wish you here to laugh loudly without a screen between us, to hug you when life feels heavy, to sit beside you and talk about nothing and everything. But even through your random calls, voice notes, text message you've made me feel understood in ways many people around me never could.</p>
+                    
+                    <p>You've seen my worst moods, overthinking, my silence, emotional breakdowns and you stayed.that means more than you'll ever know</p>
+                    
+                    <p>Thankyou for choosing me everyday, even from miles away. thank you for listening to the same stories, for hyping me up When i doubt myself, for reminding me who i am when i forget.</p>
+                    
+                    <p>Sometimes i wonder how lucky iam that in a world so big, i found a small like yours.</p>
+                    
+                    <p>No matter how far life takes us, you'll always have a home in my heart. forever gratefull for you ponnee!🤍 </p>
+                    
+                    <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Happy birthday ponne❤️😚. i always love you more than you ever think. may be i cannot be with you on this birthday but i always wish good for you. i miss you more than words can explain. please take care of yourself, chase your dreams, and never forget im always there for you.ente shuttumanik orayiram pirannal aashamsakal🌹</p>
+                </div>
+                
+                <div class="signature">
+                    With all my love,<br>
+                    Your friend who misses you every day
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="hearts">💖💕❤️💗💞</div>
+            <p>Made with infinite love for Sam's birthday</p>
+            <p>Distance means so little when someone means so much</p>
+            <p style="margin-top: 30px; font-size: 1rem; color: #b3b3ff;">
+                Share this page with Sam to make her birthday unforgettable!
+            </p>
+        </footer>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center;">
+        <div style="position: relative; width: 90%; max-width: 800px;">
+            <button id="closeVideo" style="position: absolute; top: -40px; right: 0; background: #ff4d8d; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1.2rem;">
+                <i class="fas fa-times"></i> Close
+            </button>
+            <video id="modalVideo" controls style="width: 100%; border-radius: 15px; box-shadow: 0 0 50px rgba(255,77,141,0.5);">
+                <source src="vi.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Photo Carousel Functionality
+        class PhotoCarousel {
+            constructor() {
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.buttons = document.querySelectorAll('.carousel-btn');
+                this.prevBtn = document.querySelector('.prev-btn');
+                this.nextBtn = document.querySelector('.next-btn');
+                this.currentIndex = 0;
+                this.interval = null;
+                this.init();
+            }
+            
+            init() {
+                // Set up button click events
+                this.buttons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.getAttribute('data-index'));
+                        this.goToSlide(index);
+                    });
+                });
+                
+                // Set up navigation buttons
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Start auto-rotation
+                this.startAutoRotate();
+                
+                // Pause on hover
+                const carousel = document.querySelector('.heart-photo-carousel');
+                carousel.addEventListener('mouseenter', () => this.stopAutoRotate());
+                carousel.addEventListener('mouseleave', () => this.startAutoRotate());
+            }
+            
+            goToSlide(index) {
+                // Update current index
+                this.currentIndex = index;
+                
+                // Update slides
+                this.slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                this.slides[index].classList.add('active');
+                
+                // Update buttons
+                this.buttons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                this.buttons[index].classList.add('active');
+            }
+            
+            nextSlide() {
+                let newIndex = this.currentIndex + 1;
+                if (newIndex >= this.slides.length) newIndex = 0;
+                this.goToSlide(newIndex);
+            }
+            
+            prevSlide() {
+                let newIndex = this.currentIndex - 1;
+                if (newIndex < 0) newIndex = this.slides.length - 1;
+                this.goToSlide(newIndex);
+            }
+            
+            startAutoRotate() {
+                if (this.interval) clearInterval(this.interval);
+                this.interval = setInterval(() => this.nextSlide(), 3000);
+            }
+            
+            stopAutoRotate() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            }
+        }
+        
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const symbols = ['❤️', '💖', '💕', '🎉', '🎁', '🎂', '✨', '🌟', '🎈', '🥳'];
+            
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                element.style.left = `${Math.random() * 100}vw`;
+                element.style.top = `${Math.random() * 100}vh`;
+                element.style.animationDuration = `${15 + Math.random() * 20}s`;
+                element.style.fontSize = `${Math.random() * 30 + 20}px`;
+                
+                const colors = ['#ff4d8d', '#9c3dff', '#00e5ff', '#ffcc00'];
+                element.style.color = colors[Math.floor(Math.random() * colors.length)];
+                element.style.textShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                
+                container.appendChild(element);
+            }
+        }
+        
+        // Create stars in the background
+        function createStars() {
+            const container = document.getElementById('floatingElements');
+            
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.style.position = 'absolute';
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.backgroundColor = 'white';
+                star.style.borderRadius = '50%';
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.boxShadow = '0 0 10px white';
+                star.style.opacity = `${0.3 + Math.random() * 0.7}`;
+                star.style.animation = `twinkle ${2 + Math.random() * 3}s infinite alternate`;
+                
+                container.appendChild(star);
+            }
+            
+            // Add CSS for twinkling animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes twinkle {
+                    0% { opacity: 0.3; }
+                    100% { opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Video player functionality
+        function playVideo(videoId) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            // In a real scenario, you would use actual video URLs here
+            // For demonstration, we'll use placeholder videos
+            const videoSources = {
+                'video1': 'vi.mp4',
+                'video2': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+            };
+            
+            video.src = videoSources[videoId] || videoSources['video1'];
+            modal.style.display = 'flex';
+            video.play();
+        }
+        
+        // Close video modal
+        document.getElementById('closeVideo').addEventListener('click', function() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            video.pause();
+            modal.style.display = 'none';
+        });
+        
+        // Button interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize photo carousel
+            new PhotoCarousel();
+            
+            createFloatingElements();
+            createStars();
+            
+            const messageDisplay = document.getElementById('messageDisplay');
+            const heartBtn = document.getElementById('heartMessageBtn');
+            const hugBtn = document.getElementById('virtualHugBtn');
+            const surpriseBtn = document.getElementById('birthdaySurpriseBtn');
+            const playHugBtn = document.getElementById('playHugVideo');
+            const hugVideo = document.getElementById('hugVideo');
+            
+            // Play hug video button
+            playHugBtn.addEventListener('click', function() {
+                if (hugVideo.paused) {
+                    hugVideo.play();
+                    playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                } else {
+                    hugVideo.pause();
+                    playHugBtn.innerHTML = '<i class="fas fa-play-circle"></i> Play Hug Video';
+                }
+            });
+            
+            // Auto-play hug video on hover
+            const hugContainer = document.querySelector('.hug-video-container');
+            hugContainer.addEventListener('mouseenter', function() {
+                hugVideo.play();
+                playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+            });
+            
+            hugContainer.addEventListener('mouseleave', function() {
+                hugVideo.pause();
+                hugVideo.currentTime = 0;
+                playHugBtn.innerHTML = '<i class="fas fa-play-circle"></i> Play Hug Video';
+            });
+            
+            // Heart Message Button
+            heartBtn.addEventListener('click', function() {
+                const messages = [
+                    "Sam, you are my sunshine on cloudy days, my laughter in moments of silence, and my heart's favorite person. No distance can change that.",
+                    "Every message from you feels like a hug from across the miles. Thank you for being my constant in this ever-changing world.",
+                    "If I could send my heart through the screen, it would be beating right there with you on your special day. Happy Birthday, my everything.",
+                    "They say distance makes the heart grow fonder. With you, my heart has grown so fond it could fill the space between us a thousand times over.",
+                    "You're not just my friend, you're my home. And home isn't a place, it's wherever my heart finds you."
+                ];
+                
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                messageDisplay.innerHTML = `💖 ${randomMessage}`;
+                messageDisplay.classList.add('show');
+                
+                // Create heart animation
+                createHeartsAnimation();
+            });
+            
+            // Virtual Hug Button
+            hugBtn.addEventListener('click', function() {
+                messageDisplay.innerHTML = "Sending you the warmest, tightest virtual hug! 🤗 May you feel my arms around you even from afar. You're never alone, Sam.";
+                messageDisplay.classList.add('show');
+                
+                // Play hug video
+                hugVideo.play();
+                playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                
+                // Create hug animation
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => {
+                        createFloatingHeart();
+                    }, i * 100);
+                }
+                
+                // Animate the distance bridge
+                const bridgeLine = document.querySelector('.bridge-line');
+                bridgeLine.style.animation = 'pulseBlue 0.5s 3';
+                
+                // Highlight hug section
+                const hugSection = document.querySelector('.hug-section');
+                hugSection.style.boxShadow = '0 0 60px rgba(0, 229, 255, 0.5)';
+                setTimeout(() => {
+                    hugSection.style.boxShadow = '';
+                }, 2000);
+            });
+            
+            // Birthday Surprise Button
+            surpriseBtn.addEventListener('click', function() {
+                messageDisplay.innerHTML = "SURPRISE! 🎉🎂✨ I may not be there in person, but my whole heart is celebrating with you today! You deserve the world, Sam!";
+                messageDisplay.classList.add('show');
+                
+                // Create fireworks
+                createFireworks();
+                
+                // Change background to celebration mode
+                document.body.style.background = 'linear-gradient(-45deg, #ff006e, #9c3dff, #00e5ff, #ffcc00)';
+                document.body.style.animation = 'galaxyBG 3s ease infinite';
+                
+                // Return to normal after 5 seconds
+                setTimeout(() => {
+                    document.body.style.background = '';
+                    document.body.style.animation = '';
+                }, 5000);
+                
+                // Make all timeline items bounce
+                const timelineItems = document.querySelectorAll('.timeline-content');
+                timelineItems.forEach(item => {
+                    item.style.transform = 'translateY(-20px)';
+                    setTimeout(() => {
+                        item.style.transform = '';
+                    }, 1000);
+                });
+                
+            
+                // Animate the heart
+                const heartMain = document.querySelector('.heart-main');
+                heartMain.style.animation = 'none';
+                setTimeout(() => {
+                    heartMain.style.animation = 'heartbeat 0.8s infinite';
+                }, 10);
+            });
+            
+            // Close modal when clicking outside
+            document.getElementById('videoModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    const video = document.getElementById('modalVideo');
+                    video.pause();
+                    this.style.display = 'none';
+                }
+            });
+        });
+        
+        // Create floating hearts animation
+        function createHeartsAnimation() {
+            const container = document.querySelector('.container');
+            const hearts = ['❤️', '💖', '💕', '💗', '💓', '💞'];
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.position = 'fixed';
+                heart.style.fontSize = `${Math.random() * 30 + 20}px`;
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.top = '100vh';
+                heart.style.zIndex = '1000';
+                heart.style.opacity = '0.9';
+                heart.style.pointerEvents = 'none';
+                
+                container.appendChild(heart);
+                
+                // Animate heart floating up
+                const animation = heart.animate([
+                    { transform: 'translateY(0) scale(1)', opacity: 0.9 },
+                    { transform: `translateY(-100vh) scale(${0.5 + Math.random()})`, opacity: 0 }
+                ], {
+                    duration: 3000 + Math.random() * 2000,
+                    easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                });
+                
+                // Remove heart after animation
+                animation.onfinish = () => heart.remove();
+            }
+        }
+        
+        // Create single floating heart
+        function createFloatingHeart() {
+            const container = document.querySelector('.container');
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = '40px';
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = '100vh';
+            heart.style.zIndex = '1000';
+            heart.style.opacity = '0.9';
+            heart.style.pointerEvents = 'none';
+            heart.style.textShadow = '0 0 20px #ff4d8d';
+            
+            container.appendChild(heart);
+            
+            // Animate heart floating to Sam's location (right side)
+            const animation = heart.animate([
+                { transform: 'translate(0, 0) scale(1)', opacity: 0.9 },
+                { transform: `translate(${50 + Math.random() * 100}px, -80vh) scale(1.5)`, opacity: 0 }
+            ], {
+                duration: 2000 + Math.random() * 1000,
+                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+            });
+            
+            // Remove heart after animation
+            animation.onfinish = () => heart.remove();
+        }
+        
+        // Create fireworks
+        function createFireworks() {
+            const container = document.querySelector('.container');
+            const colors = ['#ff4d8d', '#9c3dff', '#00e5ff', '#ffcc00'];
+            
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.style.position = 'fixed';
+                    firework.style.left = `${Math.random() * 100}vw`;
+                    firework.style.top = `${Math.random() * 100}vh`;
+                    firework.style.width = '5px';
+                    firework.style.height = '5px';
+                    firework.style.borderRadius = '50%';
+                    firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.boxShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                    firework.style.zIndex = '999';
+                    firework.style.pointerEvents = 'none';
+                    
+                    container.appendChild(firework);
+                    
+                    // Explode firework
+                    const particles = 20;
+                    for (let j = 0; j < particles; j++) {
+                        setTimeout(() => {
+                            const particle = document.createElement('div');
+                            particle.style.position = 'fixed';
+                            particle.style.left = firework.style.left;
+                            particle.style.top = firework.style.top;
+                            particle.style.width = '3px';
+                            particle.style.height = '3px';
+                            particle.style.borderRadius = '50%';
+                            particle.style.backgroundColor = firework.style.backgroundColor;
+                            particle.style.boxShadow = firework.style.boxShadow;
+                            particle.style.zIndex = '999';
+                            particle.style.pointerEvents = 'none';
+                            
+                            container.appendChild(particle);
+                            
+                            // Animate particle
+                            const angle = Math.random() * Math.PI * 2;
+                            const distance = 50 + Math.random() * 100;
+                            const duration = 1000 + Math.random() * 1000;
+                            
+                            particle.animate([
+                                { transform: 'translate(0, 0) scale(1)', opacity: 1 },
+                                { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, opacity: 0 }
+                            ], {
+                                duration: duration,
+                                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                            }).onfinish = () => particle.remove();
+                        }, j * 30);
+                    }
+                    
+                    // Remove firework center
+                    setTimeout(() => firework.remove(), 100);
+                }, i * 200);
+            }
+        }
+    </script>
+</body>
+</html>
