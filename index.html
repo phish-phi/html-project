@@ -381,6 +381,7 @@
             color: white;
             text-shadow: 0 0 20px rgba(255, 77, 141, 0.8);
             opacity: 0.8;
+            pointer-events: none; /* FIXED: Allows clicks to pass through to video */
         }
         
         /* Distance Bridge Visualization */
@@ -821,28 +822,28 @@
                 
                 <div class="heart-photo-carousel">
                     <div class="carousel-slide active" data-index="0">
-                        <img src="1.jpeg" height="20px" width="20px" alt="Memory with Sam">
+                        <img src="1.jpeg" alt="Memory with Sam">
                     </div>
                     <div class="carousel-slide" data-index="1">
-                        <img src="2.jpeg" alt="Adventure with Sam">
+                        <img src="3.jpeg" alt="Adventure with Sam">
                     </div>
                     <div class="carousel-slide" data-index="2">
-                        <img src="https://images.unsplash.com/photo-1529255484355-cb73c33c04bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Celebration with Sam">
+                        <img src="4.jpeg" alt="Celebration with Sam">
                     </div>
                     <div class="carousel-slide" data-index="3">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Smiling with Sam">
+                        <img src="5.jpeg" alt="Smiling with Sam">
                     </div>
                     <div class="carousel-slide" data-index="4">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Happy moment with Sam">
+                        <img src="6.jpeg" alt="Happy moment with Sam">
                     </div>
                     <div class="carousel-slide" data-index="5">
-                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Friendship moment">
+                        <img src="7.jpeg" alt="Friendship moment">
                     </div>
                     <div class="carousel-slide" data-index="6">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Special memory">
+                        <img src="8.jpeg" alt="Special memory">
                     </div>
                     <div class="carousel-slide" data-index="7">
-                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Beautiful memory">
+                        <img src="9.jpeg" alt="Beautiful memory">
                     </div>
                     
                     <div class="carousel-nav">
@@ -898,8 +899,8 @@
             </p>
             
             <div class="hug-video-container">
-                <video class="hug-video" id="hugVideo" loop muted>
-                    <source src="https://assets.mixkit.co/videos/preview/mixkit-two-girls-hugging-and-spinning-around-2385-large.mp4" type="video/mp4">
+                <video class="hug-video" id="hugVideo" loop controls> <!-- FIXED: Added controls attribute -->
+                    <source src="hug.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <div class="hug-overlay">
@@ -937,7 +938,7 @@
                         <div style="position: absolute; font-size: 5rem; opacity: 0.3;">📹</div>
                     </div>
                     <div class="video-info">
-                        <div class="video-title">Our First Video Call</div>
+                        <div class="video-title">Our Video Calls</div>
                         <div class="video-description">
                             That nervous excitement when we first saw each other on screen. 
                             I knew then that distance couldn't dim our connection.
@@ -953,10 +954,9 @@
                         <div style="position: absolute; font-size: 5rem; opacity: 0.3;">🎥</div>
                     </div>
                     <div class="video-info">
-                        <div class="video-title">Birthday Celebration Last Year</div>
+                        <div class="video-title"> Happy birthday ponnee😚❤️love youuuu</div>
                         <div class="video-description">
-                            I remember singing happy birthday to you over video call. 
-                            Your smile lit up my screen and my world.
+                            on this day i wish all the happiness and blessings for you. enjoy ur day. iam always with you and love you as always
                         </div>
                     </div>
                 </div>
@@ -1021,9 +1021,9 @@
             
             <div class="love-letter">
                 <div class="letter-content">
-                    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"></p>To my favorite person from miles away😭💘</p>
+                    <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">To my favorite person from miles away😭💘</p>
                     
-                    <p>Sometimes i sit quietly and think about how strange and beautiful our frienship is. We live in different places, breathe different air,walking different streets.yet somehow, you are one of the closest people to my heart.</p>
+                    <p>Sometimes i sit quietly and think about how strange and beautiful our friendship is. We live in different places, breathe different air, walking different streets.yet somehow, you are one of the closest people to my heart.</p>
                   
                     <p>Distance has never made you feel far:
                     </p>
@@ -1064,7 +1064,7 @@
                 <i class="fas fa-times"></i> Close
             </button>
             <video id="modalVideo" controls style="width: 100%; border-radius: 15px; box-shadow: 0 0 50px rgba(255,77,141,0.5);">
-                <source src="vi.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -1200,21 +1200,27 @@
             document.head.appendChild(style);
         }
         
-        // Video player functionality
+        // Video player functionality - FIXED: Added error handling
         function playVideo(videoId) {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('modalVideo');
             
-            // In a real scenario, you would use actual video URLs here
-            // For demonstration, we'll use placeholder videos
+            // Use the correct video paths
             const videoSources = {
-                'video1': 'vi.mp4',
-                'video2': 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+                'video1': 'video.mp4',
+                'video2': 'wish.mp4'
             };
             
+            // FIXED: Ensure video loads properly
             video.src = videoSources[videoId] || videoSources['video1'];
+            video.load(); // FIXED: Added load() to ensure proper loading
             modal.style.display = 'flex';
-            video.play();
+            
+            // FIXED: Play with sound
+            video.play().catch(function(error) {
+                console.log("Playback failed:", error);
+                // Show play button if autoplay fails
+            });
         }
         
         // Close video modal
@@ -1223,6 +1229,7 @@
             const video = document.getElementById('modalVideo');
             
             video.pause();
+            video.currentTime = 0;
             modal.style.display = 'none';
         });
         
@@ -1241,29 +1248,44 @@
             const playHugBtn = document.getElementById('playHugVideo');
             const hugVideo = document.getElementById('hugVideo');
             
-            // Play hug video button
+            // FIXED: Ensure hug video has sound enabled
+            hugVideo.muted = false; // Make sure sound is enabled
+            
+            // Play hug video button - FIXED: Better sound handling
             playHugBtn.addEventListener('click', function() {
                 if (hugVideo.paused) {
-                    hugVideo.play();
-                    playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                    hugVideo.play()
+                        .then(() => {
+                            playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                        })
+                        .catch(error => {
+                            console.log("Playback failed:", error);
+                            alert("Tap the video to play with sound");
+                        });
                 } else {
                     hugVideo.pause();
                     playHugBtn.innerHTML = '<i class="fas fa-play-circle"></i> Play Hug Video';
                 }
             });
             
-            // Auto-play hug video on hover
+            // FIXED: Make video clickable to play/pause
             const hugContainer = document.querySelector('.hug-video-container');
-            hugContainer.addEventListener('mouseenter', function() {
-                hugVideo.play();
-                playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+            hugContainer.addEventListener('click', function() {
+                if (hugVideo.paused) {
+                    hugVideo.play()
+                        .then(() => {
+                            playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                        })
+                        .catch(error => {
+                            console.log("Playback failed:", error);
+                        });
+                } else {
+                    hugVideo.pause();
+                    playHugBtn.innerHTML = '<i class="fas fa-play-circle"></i> Play Hug Video';
+                }
             });
             
-            hugContainer.addEventListener('mouseleave', function() {
-                hugVideo.pause();
-                hugVideo.currentTime = 0;
-                playHugBtn.innerHTML = '<i class="fas fa-play-circle"></i> Play Hug Video';
-            });
+            // Remove hover autoplay - it was interfering with sound
             
             // Heart Message Button
             heartBtn.addEventListener('click', function() {
@@ -1288,9 +1310,14 @@
                 messageDisplay.innerHTML = "Sending you the warmest, tightest virtual hug! 🤗 May you feel my arms around you even from afar. You're never alone, Sam.";
                 messageDisplay.classList.add('show');
                 
-                // Play hug video
-                hugVideo.play();
-                playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                // Play hug video with sound
+                hugVideo.play()
+                    .then(() => {
+                        playHugBtn.innerHTML = '<i class="fas fa-pause-circle"></i> Pause Hug Video';
+                    })
+                    .catch(error => {
+                        console.log("Playback failed:", error);
+                    });
                 
                 // Create hug animation
                 for (let i = 0; i < 20; i++) {
@@ -1338,7 +1365,6 @@
                     }, 1000);
                 });
                 
-            
                 // Animate the heart
                 const heartMain = document.querySelector('.heart-main');
                 heartMain.style.animation = 'none';
@@ -1352,6 +1378,7 @@
                 if (e.target === this) {
                     const video = document.getElementById('modalVideo');
                     video.pause();
+                    video.currentTime = 0;
                     this.style.display = 'none';
                 }
             });
